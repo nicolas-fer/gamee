@@ -1,0 +1,23 @@
+<h1 *ngIf="!isEdit" mat-dialog-title>Create Team</h1>
+<h1 *ngIf="isEdit" mat-dialog-title>Edit Team</h1>
+<div mat-dialog-content>
+  <p>Input the respective data to create a team!</p>
+  
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Primary Color</mat-label>
+    <input matInput [(ngModel)]="data.primaryColor">
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Secondary Color</mat-label>
+    <input matInput [(ngModel)]="data.secondaryColor">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button *ngIf="!isEdit" [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+  <button mat-button *ngIf="isEdit" [mat-dialog-close]="data" cdkFocusInitial>Edit</button>
+</div>

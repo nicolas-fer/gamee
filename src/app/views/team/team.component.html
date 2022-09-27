@@ -1,0 +1,46 @@
+<div class="container">
+  <button mat-raised-button class="btn" color="primary" (click)="openCreateModal(null)">Create Team</button>
+
+  <table mat-table #grid [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="primaryColor">
+      <th mat-header-cell *matHeaderCellDef> Primary Color </th>
+      <td mat-cell *matCellDef="let element"> {{element.primaryColor}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="secondaryColor">
+      <th mat-header-cell *matHeaderCellDef> Secondary Color </th>
+      <td mat-cell *matCellDef="let element"> {{element.secondaryColor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-icon-button (click)="openCreateModal(element)" color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>  
+        <button mat-icon-button (click)="deleteItem(element.id)" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>  
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
