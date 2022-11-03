@@ -1,0 +1,18 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxFlex="80" fxFlex.gt-sm="25">
+    <mat-card-title fxLayoutAlign="center center" class="card-title">Gamee</mat-card-title>
+    <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="login()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome de usuário</mat-label>
+        <input matInput placeholder="Digite seu nome de usuário" formControlName="username">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input matInput placeholder="Digite sua senha" type="password" formControlName="password">
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" color="primary">Login</button>
+    </form>
+  </mat-card>
+</div>

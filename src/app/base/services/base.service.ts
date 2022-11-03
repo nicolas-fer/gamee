@@ -5,7 +5,7 @@ import { BaseModel } from "../models/base";
 import { GameeResponse } from "../models/gameeResponse";
 
 export abstract class BaseService<T extends BaseModel<TId>, TId> {
-  private apiUrl: string;
+  protected apiUrl: string;
   constructor(
     protected httpClient: HttpClient,
     protected apiEndpoint: string
